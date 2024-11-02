@@ -1,7 +1,6 @@
 .main-nav {
   position: relative;
 }
-
 .mobile-top-bar {
   display: flex;
   align-items: center;
@@ -16,11 +15,9 @@
   height: 60px;
   z-index: 10;
 }
-
 .top-bar-logo {
   font-size: 1.5rem;
 }
-
 .burger {
   height: 40px;
   width: 40px;
@@ -33,7 +30,6 @@
   transition: 0.3s;
   cursor: pointer;
 }
-
 .burger-bar {
   height: 3px;
   width: 20px;
@@ -44,23 +40,18 @@
   border-radius: 10px;
   transition: transform 0.4s, opacity 0.4s;
 }
-
 .burger :first-child {
   margin-top: 0;
 }
-
 .burger.active .burger-bar:nth-of-type(1) {
   transform: translateY(8px) rotate(45deg);
 }
-
 .burger.active .burger-bar:nth-of-type(2) {
   opacity: 0;
 }
-
 .burger.active .burger-bar:nth-of-type(3) {
   transform: translateY(-8px) rotate(-45deg);
 }
-
 .circle-bg {
   position: fixed;
   top: 30px;
@@ -73,11 +64,9 @@
   transition: transform 0.5s ease-in-out;
   z-index: 7;
 }
-
 .main-nav.active .circle-bg {
   transform: scale(50);
 }
-
 .site-menu,
 .menu-submenu {
     display: none;
@@ -91,30 +80,22 @@
     padding: 2rem 1rem;
     background: red;
     flex-direction: column;
-    /* Remove align-items */
-    /* align-items: center; */
     justify-content: flex-start;
     z-index: 8;
     margin: 0;
     overflow-y: auto;
-    /* Remove max-height */
-    /* max-height: calc(100vh - 60px); */
 }
-
 .menu-submenu.slow-close {
   transition: opacity 0.4s ease-in-out 0.1s;
 }
-
 .site-menu.visible,
 .menu-submenu.visible {
   display: flex;
 }
-
 .site-menu.active,
 .menu-submenu.active {
   opacity: 1;
 }
-
 .site-menu li,
 .menu-submenu li {
     margin: 0;
@@ -126,38 +107,29 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
-    /* New styles */
-    min-height: 80px; /* Set your desired minimum height */
-    flex-shrink: 0;   /* Prevent items from shrinking */
-    flex-grow: 0;     /* Prevent items from growing */
-    flex-basis: auto; /* Allow items to size based on content and min-height */
+    min-height: 80px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    flex-basis: auto;
 }
-
 .site-menu li + li,
 .menu-submenu li + li {
     margin-top: 1rem;
 }
-
 .site-menu a,
 .menu-submenu a {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    /* Remove fixed padding to let content dictate height */
-    /* padding: 1rem; */
     text-decoration: none;
     color: white;
     font-size: 1.8rem;
 }
-
 .site-menu a span,
 .menu-submenu a span {
   padding: 0.5rem 1rem;
 }
-
-
 body.menu-open {
   overflow: hidden;
 }
