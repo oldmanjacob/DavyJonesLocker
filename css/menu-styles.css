@@ -23,7 +23,7 @@
     height: 40px;
     width: 40px;
     position: relative;
-    margin-right: 10px;
+    margin: 0 10px 0 auto;
     border: 5px solid transparent;
     border-radius: 50%;
     padding: 5px;
@@ -88,8 +88,8 @@
 }
   .circle-bg {
     position: fixed;
-    top: 20px;
-    right: 10px;
+    top: 30px;
+    right: 20px;
     width: 60px;
     height: 60px;
     background: red;
