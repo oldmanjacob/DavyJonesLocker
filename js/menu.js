@@ -25,12 +25,14 @@ document.addEventListener('DOMContentLoaded', () => {
             mainNav.classList.remove('active');
             siteMenu.classList.remove('active', 'visible');
             burger.classList.remove('active');
+            document.body.style.overflow = '';
         } else {
             siteMenu.classList.add('visible');
             setTimeout(() => {
                 mainNav.classList.toggle('active');
                 siteMenu.classList.toggle('active');
                 burger.classList.toggle('active');
+                document.body.style.overflow = 'hidden';
             }, 10);
         }
     };
