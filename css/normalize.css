@@ -1,14 +1,15 @@
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
   html {
     -webkit-text-size-adjust: 100%;
   }
-  body {
-    margin: 0;
-  }
   main {
     display: block;
-  }
-  h1 {
-    margin: 0.67em 0;
   }
   hr {
     box-sizing: content-box;
@@ -65,7 +66,6 @@
     font-family: inherit; 
     font-size: 100%;
     line-height: 1.15; 
-    margin: 0;
   }
   button,
   input { 
@@ -94,15 +94,11 @@
   [type="submit"]:-moz-focusring {
     outline: 1px dotted ButtonText;
   }
-  fieldset {
-    padding: 0.35em 0.75em 0.625em;
-  }
   legend {
     box-sizing: border-box;
     color: inherit;
     display: table;
     max-width: 100%; 
-    padding: 0; 
     white-space: normal; 
   }
   progress {

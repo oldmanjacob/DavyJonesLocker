@@ -37,7 +37,7 @@
 <body>
    <div class="outer-wrapper">
         <div class="container">
-            <img src="/images/logo-colorful-841X869.webp" alt="Davy Jones' Locker Logo" class="logo" width="841" height="869">
+            <img src="/images/logo-colorful-841x869.webp" alt="Davy Jones' Locker Logo" class="logo" width="841" height="869">
         </div>
         <div class="container bottom-section">
             <h1>Coming Soon</h1>
