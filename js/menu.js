@@ -5,6 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuItems = document.querySelectorAll('.menu-item');
     const subMenus = document.querySelectorAll('.menu-submenu');
 
+    const adjustMenuHeight = () => {
+        const viewportHeight = window.innerHeight;
+        const topBarHeight = 60;
+        document.querySelectorAll('.site-menu, .menu-submenu').forEach(menu => {
+            menu.style.height = `${viewportHeight - topBarHeight}px`;
+        });
+    };
+
     const enableMobileMenu = () => {
         burger.removeEventListener('click', toggleMainMenu);
         menuItems.forEach(menuItem => menuItem.removeEventListener('click', toggleSubMenu));
@@ -57,6 +65,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 10);
     };
 
+    adjustMenuHeight();
     enableMobileMenu();
-    window.addEventListener('resize', enableMobileMenu);
+    window.addEventListener('resize', () => {
+        adjustMenuHeight();
+        enableMobileMenu();
+    });
 });
