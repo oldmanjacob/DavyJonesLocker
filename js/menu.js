@@ -5,14 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuItems = document.querySelectorAll('.menu-item');
     const subMenus = document.querySelectorAll('.menu-submenu');
 
-    const adjustMenuHeight = () => {
-        const viewportHeight = window.innerHeight;
-        const topBarHeight = 60;
-        document.querySelectorAll('.site-menu, .menu-submenu').forEach(menu => {
-            menu.style.height = `${viewportHeight - topBarHeight}px`;
-        });
-    };
-
     const enableMobileMenu = () => {
         burger.removeEventListener('click', toggleMainMenu);
         menuItems.forEach(menuItem => menuItem.removeEventListener('click', toggleSubMenu));
@@ -33,14 +25,14 @@ document.addEventListener('DOMContentLoaded', () => {
             mainNav.classList.remove('active');
             siteMenu.classList.remove('active', 'visible');
             burger.classList.remove('active');
-            document.body.style.overflow = '';
+            document.body.classList.remove('menu-open');
         } else {
             siteMenu.classList.add('visible');
             setTimeout(() => {
                 mainNav.classList.toggle('active');
                 siteMenu.classList.toggle('active');
                 burger.classList.toggle('active');
-                document.body.style.overflow = 'hidden';
+                document.body.classList.add('menu-open');
             }, 10);
         }
     };
@@ -65,10 +57,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 10);
     };
 
-    adjustMenuHeight();
     enableMobileMenu();
     window.addEventListener('resize', () => {
-        adjustMenuHeight();
         enableMobileMenu();
     });
 });
