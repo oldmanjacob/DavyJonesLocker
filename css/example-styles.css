@@ -114,54 +114,6 @@
     animation: animate 3s linear infinite;
     animation-delay: calc(var(--i) * 0.5s);
 }
-/*///////////////////////////// HERO OPTION ONE ///////////////////////////////////////*/
-.split-style-one-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    padding: 2rem 1rem;
-}
-.split-style-one-headline {
-    color: var(--COLOR-MAIN-DARK);
-    margin-bottom: 1rem;
-}
-
-.split-style-one-text {
-    color: var(--COLOR-NEUTRAL);
-    margin-bottom: 2rem;
-}
-.split-style-one-features {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-}
-.split-style-one-feature {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-}
-.split-style-one-icon {
-    width: 40px;
-    height: 40px;
-    background-color: var(--COLOR-MAIN-BRIGHT);
-}
-.split-style-one-feature-headline {
-    color: var(--COLOR-MAIN-DARK);
-}
-.split-style-one-feature-text {
-    color: var(--COLOR-NEUTRAL);
-    margin-top: 0.25rem;
-}
-.split-style-one-image {
-    display: flex;
-    justify-content: center;
-}
-.split-style-one-img-placeholder {
-    width: 350px;
-    max-width: 400px;
-    height: 400px;
-    background-color: var(--COLOR-NEUTRAL);
-}
 @keyframes animate {
     0% {
         transform: translateY(0) scaleX(1);
@@ -180,6 +132,121 @@
     100% {
         transform: translateY(-150px) scaleX(8);
     }
+}
+/*/////////////////// FEATURES AND BENEFITS ///////////////////////////////////*/
+.main-features-and-benefits-section{
+    padding: 0 1rem;
+}
+.features-grid-container{
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "featuresImage featuresImage"
+    "featuresText featuresText"
+    "featuresCard featuresHookah"
+    "benefitsHeadline benefitsHeadline"
+    "benefitsTextOne benefitsTextTwo"
+    " . benefitsBottom"
+    ;
+    gap: 1rem;
+}
+.features-grid-image-container{
+    grid-area: featuresImage;
+    grid-column: span 2;
+    display: flex;
+}
+.features-grid-image{
+   width: 100%;
+   max-width: 500px;
+   height: auto;
+   margin: 0 auto;
+   margin-bottom: 1.5rem;
+}
+.features-grid-features-text-container{
+  grid-area: featuresText;
+  grid-column: span 2;
+}
+.features-grid-features-headline{
+    color: var(--COLOR-MAIN-DARK);
+    margin-bottom: 1.25rem;
+    font-size: 1.72rem;
+}
+.features-grid-features-text{
+    color: var(--COLOR-NEUTRAL);
+    font-size: .75rem;
+    margin-bottom: 3rem;
+}
+.features-grid-card-container{
+    grid-area: featuresCard;
+    background-color: var(--COLOR-MAIN-DARK);
+    border-radius: 20px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+}
+.features-card-image{
+    width: 64px;
+    height: auto;
+}
+.features-card-headline{
+    color: white;
+}
+.features-card-text{
+    color: white;
+    font-size: .75rem;
+}
+.features-grid-hookah-container{
+    grid-area: featuresHookah;
+    background-image: url(../images/large-hookah.webp);
+    background-size: contain;
+    background-position: right;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+.features-grid-benefits-headline-container{
+    grid-area: benefitsHeadline;
+    grid-column: span 2;
+    height: 100%;
+    max-width: 375px;
+    margin: 0 auto;
+}
+.features-grid-benefits-headline{
+    margin-bottom: 0;
+    font-size: 5rem;
+    line-height: .9;
+    letter-spacing: -2px;
+    color: var(--COLOR-MAIN-DARK);
+    display: flex;
+    flex-direction: column;
+}
+.features-grid-benefits-headline-bottom{
+    align-self: flex-end;
+}
+.features-grid-benefits-text-container-left{
+    grid-area: benefitsTextOne;
+ 
+}
+.features-grid-benefits-text-container-right{
+   grid-area: benefitsTextTwo;
+}
+.features-grid-benefits-text{
+    font-size: .75rem;
+    margin-top: 3rem;
+    color: var(--COLOR-NEUTRAL);
+}
+.features-grid-bottom-text-container{
+    grid-area: benefitsBottom;
+    
+    display: flex;
+}
+.features-grid-bottom-text{
+    color: var(--COLOR-MAIN-DARK);
+    font-size: 2rem;
+    align-self: flex-end;
+    margin-bottom: 0;
 }
 @media (min-width: 650px){
     .hero-opt-two-headline {
@@ -210,15 +277,82 @@
         display: flex;
         justify-content: left;
     }
-    .split-style-one-container {
-        grid-template-columns: 1fr 1fr;
-        align-items: start;
+    .features-grid-container{
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        grid-template-rows: minmax(50px, auto) minmax(50px, auto) minmax(50px, auto) 
+                            minmax(50px, auto) minmax(50px, auto)  minmax(1rem, auto) 
+                            minmax(100px, auto) minmax(100px, auto) minmax(100px, auto)
+                            minmax(100px, auto) minmax(100px, auto) minmax(100px, auto);
+        column-gap: 20px;
+        row-gap: 0;
+        max-width: 1200px;
+        margin: 4rem auto;
     }
-    .split-style-one-features {
-        grid-template-columns: 1fr 1fr;
+    .features-grid-image-container{
+        grid-column: 1 / span 5;
+        grid-row: 1 / span 3;
+        position: relative;
     }
-    .split-style-one-image {
-        justify-content: flex-end;
+    .features-grid-image{
+        position: absolute;
+        right: 0;
+        max-width: none;
+        width: 110%;
+        height: auto;
+        align-self: right;
+    }
+    .features-grid-features-text-container{
+        grid-column: 7 / span 4;
+        grid-row: 1 / span 3;
+    }
+    .features-grid-features-headline{
+        margin-bottom: 2rem;
+    }
+    .features-grid-card-container{
+        grid-column: 9 / span 2;
+        grid-row: 4 / span 5;
+        margin-bottom: 0;
+    }
+    .features-grid-hookah-container{
+        grid-column: 5 / span 5;
+        grid-row: 4 / span 7;
+        background-position: center;
+    }
+    .features-grid-benefits-headline-container{
+        grid-column: 1 / span 5;
+        grid-row: 5 / span 2;
+        height: 100%;
+        max-width: none;
+        margin: 0;
+    }
+    .features-grid-benefits-text-container-left{
+        grid-column: 1 / span 2;
+        grid-row: 7 / span 3;
+    }
+    .features-grid-benefits-text-container-right{
+        grid-column: 4 / span 2;
+        grid-row: 7 / span 3;
+    }
+    .features-grid-bottom-text-container{
+        grid-column: 4 / span 3;
+        grid-row: 10 / span 1;
+        display: flex;
+    }
+}
+@media (min-width: 850px) {
+    .features-grid-image-container{
+        grid-row: 1 / span 5;
+    }
+    .features-grid-benefits-headline-container{
+        grid-row: 6 / span 2;
+    }
+    .features-grid-benefits-text-container-left,
+    .features-grid-benefits-text-container-right{
+        grid-row: 8 / span 3;
+    }
+    .features-grid-features-text{
+        padding-bottom: 1rem;
     }
 }
 @media (min-width: 1000px){
@@ -230,9 +364,57 @@
         top: 50px;
         left: 250px;
     }
+    .features-grid-container{
+        grid-template-columns: repeat(10, 1fr);
+        grid-template-rows: minmax(100px, auto) minmax(100px, auto) minmax(75px, auto) 
+                            minmax(50px, auto) minmax(100px, auto) 1rem
+                            minmax(100px, auto) minmax(100px, auto) minmax(100px, auto)
+                            minmax(100px, auto) minmax(100px, auto) minmax(100px, auto);
+    }
+    .features-grid-benefits-headline{
+        font-size: 7rem;
+   }
 }
 @media (min-width: 1107px){
     .hero-opt-two-text-column{
         padding: 10rem 0 0 4.5rem;
+    }
+    .features-grid-benefits-headline{
+         font-size: 8rem;
+    }
+    .features-grid-features-text{
+        font-size: 1rem;
+    }
+    .features-grid-image{
+        width: 120%;
+    }
+    .features-grid-image-container{
+        grid-row: 1 / span 5;
+    }
+    .features-grid-container{
+        grid-template-columns: repeat(10, 1fr);
+        grid-template-rows: minmax(100px, auto) minmax(100px, auto) minmax(100px, auto) 
+                            minmax(100px, auto) minmax(100px, auto) 4rem
+                            minmax(100px, auto) minmax(100px, auto) minmax(100px, auto)
+                            minmax(100px, auto) minmax(100px, auto) minmax(100px, auto);
+    }
+    .features-grid-benefits-headline-container{
+        grid-row: 7 / span 2;
+    }
+    .features-grid-benefits-text-container-left,
+    .features-grid-benefits-text-container-right{
+        grid-row: 9 / span 3;
+    }
+    .features-grid-benefits-text{
+        font-size: 1rem;
+    }
+    .features-grid-bottom-text-container{
+        grid-row: 12 / span 1;
+    }
+    .features-grid-bottom-text{
+        font-size: 2.75rem;
+    }
+    .features-grid-hookah-container{
+        grid-row: 4 / span 9;
     }
 }
