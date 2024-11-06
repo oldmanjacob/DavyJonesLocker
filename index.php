@@ -25,9 +25,7 @@
     <link rel="icon" type="image/webp" sizes="32x32" href="images/favicon32x32.webp">
     <link rel="icon" type="image/svg+xml" href="images/large-favicon.svg">
     <link rel="apple-touch-icon" sizes="180x180" href="images/favicon180x180.png">
-    <link rel="manifest" href="/manifest.json">
 
-    <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/global-styles.css">
     <link rel="stylesheet" href="css/coming-soon.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
