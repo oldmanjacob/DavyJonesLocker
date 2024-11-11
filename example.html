@@ -33,8 +33,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital@0;1&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
     <script defer src="js/menu.js"></script>
+    <script defer src="js/animation-control.js"></script>
 </head>
 <body>
+    <div class="header">
     <nav class="main-nav">
         <div class="circle-bg"></div>
         <div class="mobile-top-bar">
@@ -47,13 +49,25 @@
         </div>
           <ul class="site-menu">
               <li><a href="#"><span>Experience</span></a></li>
-              <li><a href="#" class="menu-item" data-submenu="menu-submenu-data"><span>Menu</span></a>
-                <!-- <ul> <li><a href></a></li> </ul                                              
-                Submenus for desktop will nest as normal. Javascript will not toggle visibility of below submenus-->
+              <li class="menu-hover-trigger"><a href="#" class="menu-item" data-submenu="menu-submenu-data"><span>Menu</span></a>
+                <ul class="desktop-submenu">
+                  <li><a href="#"><img class="desktop-menu-image"src="images/chill-vibe.svg"><span>Food</span></a></li> 
+                  <li><a href="#"><img class="desktop-menu-image"src="images/chill-vibe.svg"><span>Drinks</span></a></li> 
+                </ul>                                                      
               </li>
               <li><a href="#"><span>Events</span></a></li>
-              <li><a href="#" class="menu-item" data-submenu="loyalty-submenu-data"><span>Loyalty Club</span></a></li>
-              <li><a href="#" class="menu-item" data-submenu="learn-submenu-data"><span>Learn</span></a></li>
+              <li class="menu-hover-trigger"><a href="#" class="menu-item" data-submenu="loyalty-submenu-data"><span>Loyalty Club</span></a>
+                <ul class="desktop-submenu">
+                    <li><a href="#"><img class="desktop-menu-image"src="images/chill-vibe.svg"><span>About</span></a></li> 
+                    <li><a href="#"><img class="desktop-menu-image"src="images/chill-vibe.svg"><span>Log In</span></a></li> 
+                </ul>
+              </li> 
+              <li class="menu-hover-trigger"><a href="#" class="menu-item" data-submenu="learn-submenu-data"><span>Learn</span></a>
+                <ul class="desktop-submenu">
+                    <li><a href="#"><img class="desktop-menu-image"src="images/chill-vibe.svg"><span>About Hookah</span></a></li> 
+                    <li><a href="#"><img class="desktop-menu-image"src="images/chill-vibe.svg"><span>About Us</span></a></li> 
+                </ul>
+             </li>
               <li><a href="#"><span>Contact</span></a></li>
           </ul>
                           <ul id="menu-submenu-data" class="menu-submenu">
@@ -65,10 +79,11 @@
                             <li><a href="#"><span>Log In</span></a></li>
                           </ul>
                           <ul id="learn-submenu-data" class="menu-submenu">
-                            <li><a href="#"><span>Hookah</span></a></li>
-                            <li><a href="#"><span>Business</span></a></li>
+                            <li><a href="#"><span>About Hookah</span></a></li>
+                            <li><a href="#"><span>About Us</span></a></li>
                           </ul>
       </nav>
+        </div>
     <section class="hero-opt-two">
         <h1 class="hero-opt-two-headline width-limiter">DAVY JONES' LOCKER</h1>
         <div class="hero-opt-two-grid-container width-limiter">
@@ -144,8 +159,62 @@
                 <p class="features-grid-benefits-text">Here are some other words that I need to write to make the place sound chill. I will probably also need to change what the sentence above says into something better.</p>
             </div>
             <div class="features-grid-bottom-text-container">
-                <h2 class="features-grid-bottom-text">and then...</h2>
+                <h2 class="features-grid-bottom-text auto-animate">and then...</h2>
             </div>
+        </div>
+    </section>
+    <section class="eat-and-drink-section">
+        <div class="eat-and-drink-grid-container">
+            <div class="eat-section-main-image-container">
+                <img src="images/eating-a-panini.webp" width="450" height="675" alt="a woman is eating a panini">
+            </div>
+            <div class="eat-section-headline-container">
+                <h2 class="eat-section-headline">try some food</h2>
+            </div>
+            <div class="eat-section-text-container">
+                <p class="eat-section-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem culpa voluptate doloremque consequuntur facere inventore quis reiciendis accusamus in incidunt. bjfkd jfd jajsh h djs ajshd  aisdjd</p> 
+                <p class="eat-section-text-continued"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim dolorum pariatur aspernatur a itaque non amet alias doloribus, cumque, nesciunt repudiandae deserunt assumenda accusantium necessitatibus perspiciatis officiis est delectus magnam!</p>
+                <a href="#">Our Food Menu ></a>
+            </div>
+            <div class="drink-section-content-container">
+                <h2 class="drink-section-headline">( . . . or a drink)</h2>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa accusantium ducimus, sunt maxime in totam est ad dolorum blanditiis ullam!</p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia vitae sint, cum nulla reiciendis laborum ducimus ipsam ipsa sequi dicta dolor magni soluta dolorum temporibus vel nobis quas officia fuga?</p>
+                <a href="#">Our Drink Menu ></a>
+            </div>
+            <div class="drink-section-image-container">
+                <img class="drink-section-image scroll-progress" src="images/cup-of-coffee.webp" width="600" height="600" alt="a cup of cappucino sits on a table">
+            </div>
+        </div>
+        <h2 class="entertainment-preceeding-text">check out the <span>LIVE</span></h2>
+    </section>
+    <section class="entertainment-section">
+        <div class="entertainment-wrapper">
+        <h2 class="entertainment-headline">ENTERTAINMENT</h2>
+    </section>
+    <section class="entertainment-section-bottom">
+        <div class="comedy-section width-limiter">
+            <div class="comedy-section-image-container">
+                <img class="comedy-section-image" src="images/comedian.webp" alt="a comedian performs for a crowd" width="700" height="467">
+            </div>
+            <div class="comedy-section-content">
+                <h2 class="comedy-section-headline">laugh...</h2>
+                <p class="comedy-section-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem cupiditate corporis, modi vel laudantium ab eum numquam, vitae ipsum velit excepturi ad. Architecto laboriosam laudantium dicta esse quos sunt neque.</p>
+                <a href="#">More ></a>
+                <img class="giant-microphone" src="images/microphone.webp">
+            </div>
+        </div>
+        <div class="music-section width-limiter">
+            <div class="music-section-content">
+                <h2 class="music-section-headline">or maybe dance</h2>
+                <p class="music-section-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil accusamus ratione quisquam atque eos ex unde ea, omnis earum officiis et odit saepe sequi, natus, eaque neque quas maiores soluta.</p>
+                <a href="#">More ></a>
+                <img class="giant-speaker" src="images/speaker.webp">
+            </div>
+            <div class="music-section-image-container">
+                <img class="music-section-image" src="images/dj-hands.webp" alt="a dj is playing the turntables" width="700" height="467">
+            </div>
+        </div>
         </div>
     </section>
 </body>

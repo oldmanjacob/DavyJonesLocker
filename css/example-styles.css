@@ -1,3 +1,4 @@
+
 .hero-opt-two {
     background-image: linear-gradient(to bottom, var(--COLOR-MAIN-DARK), black);
     padding: 3rem 1rem 0 1rem;
@@ -136,14 +137,15 @@
 /*/////////////////// FEATURES AND BENEFITS ///////////////////////////////////*/
 .main-features-and-benefits-section{
     padding: 0 1rem;
+    background-color: white;
 }
 .features-grid-container{
     margin-top: 2rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 
-    "featuresImage featuresImage"
     "featuresText featuresText"
+    "featuresImage featuresImage"
     "featuresCard featuresHookah"
     "benefitsHeadline benefitsHeadline"
     "benefitsTextOne benefitsTextTwo"
@@ -162,6 +164,7 @@
    height: auto;
    margin: 0 auto;
    margin-bottom: 1.5rem;
+   box-shadow: 2px 2px 10px black;
 }
 .features-grid-features-text-container{
   grid-area: featuresText;
@@ -175,7 +178,7 @@
 .features-grid-features-text{
     color: var(--COLOR-NEUTRAL);
     font-size: .75rem;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
 }
 .features-grid-card-container{
     grid-area: featuresCard;
@@ -186,6 +189,7 @@
     justify-content: space-between;
     margin-bottom: 3rem;
     position:relative;
+    box-shadow: 2px 2px 2px black;
 }
 .features-grid-card{
     display: flex;
@@ -232,7 +236,7 @@
     background-size: contain;
     background-position: right;
     background-repeat: no-repeat;
-    z-index: -1;
+    z-index: 1;
 }
 .features-grid-benefits-headline-container{
     grid-area: benefitsHeadline;
@@ -275,6 +279,183 @@
     font-size: 2rem;
     align-self: flex-end;
     margin-bottom: 0;
+}
+@keyframes bounceScale {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.features-grid-bottom-text.animate{
+    animation: bounceScale 0.4s ease-out;
+    animation-fill-mode: forwards;
+}
+.eat-and-drink-grid-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "eatDrinkImage"
+    "eatDrinkEatHeadline"
+    "eatDrinkEatText"
+    "eatDrinkDrinkImage"
+    "eatDrinkDrinkText"
+    ;
+    padding: .5rem;
+    gap: 1rem;
+}
+.eat-section-main-image-container{
+    grid-area: eatDrinkImage;
+    display: flex;
+    justify-content: center;
+}
+.eat-section-main-image-container img{
+    width: 90%;
+    max-width: 450px;
+    height: auto;
+}
+.eat-section-headline-container{
+    grid-area: eatDrinkEatHeadline;
+}
+.eat-section-headline{
+    color: var(--COLOR-MAIN-DARK);
+    font-size: 3.5rem
+}
+.eat-section-text-container{
+    grid-area: eatDrinkEatText;
+    margin-bottom: 2rem;
+}
+.eat-section-text,
+.eat-section-text-continued{
+    font-size: .75rem;
+}
+.eat-section-text-container a{
+    color: var(--COLOR-MAIN);
+}
+.drink-section-image-container{
+    grid-area: eatDrinkDrinkImage;
+    display: flex;
+}
+.drink-section-image{
+    width: 300px;
+    height: auto;
+    margin: 0 auto;
+    box-shadow: 4px 4px 10px black;
+    position: relative;
+}
+.drink-section-content-container{
+    grid-area: eatDrinkDrinkText;
+}
+.drink-section-headline{
+    color: var(--COLOR-MAIN-DARK);
+}
+.drink-section-content-container p{
+    font-size: .75rem;
+}
+.drink-section-content-container a{
+    color: var(--COLOR-MAIN);
+}
+.entertainment-preceeding-text{
+    color: var(--COLOR-MAIN-DARK);
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 3rem; 
+    position: relative;  
+}
+.entertainment-preceeding-text::before {
+    content: "AND"; 
+    position: absolute;
+    top: -15px;
+    font-size: 1.5rem; 
+    color: var(--COLOR-HIGHLIGHT); 
+    transform: translateX(-20px) rotate(-20deg);
+    
+}
+.entertainment-preceeding-text span{
+    font-size: 2.5rem;  
+}
+.entertainment-section{
+    background-image: linear-gradient(to bottom, transparent 12px, var(--COLOR-MAIN-DARK) 12px);
+    padding: 0;
+    height: 5rem;
+}
+.entertainment-section-bottom{
+    background-image: linear-gradient(to bottom, var(--COLOR-MAIN-DARK), black);
+    padding-bottom: 4rem;
+    overflow-x: hidden;
+}
+.entertainment-headline{
+    color: white;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-top: -2.2rem;
+    padding: 0;
+}
+.comedy-section,
+.music-section{
+    display: flex;
+    flex-direction: column;
+    padding: 0  1rem;
+    justify-content: space-between;
+}
+.music-section{
+    margin-top: 3rem;
+}
+.comedy-section-image-container,
+.music-section-image-container{
+    flex: 1;
+}
+.comedy-section-image,
+.music-section-image{
+    width: 100%;
+    height: auto;
+    border: 1rem solid white;
+    box-shadow: 2px 2px 5px black;
+}
+.comedy-section-content,
+.music-section-content{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    position: relative;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    padding-inline: 18%;
+}
+.music-section-content{
+    padding-right: 1rem;
+    padding-left: 10rem;
+}
+.music-section-content a,
+.comedy-section-content a{
+    color: var(--COLOR-HIGHLIGHT);
+}
+.comedy-section-headline,
+.music-section-headline{
+    font-size: 3rem;
+}
+.comedy-section-text,
+.music-section-text{
+    font-size: .75rem;
+    max-width: 300px;
+}
+.giant-speaker{
+    position: absolute;
+    left: -13rem;
+    bottom: 0;
+    width: 300px;
+    height: auto;
+}
+.giant-microphone{
+    position: absolute;
+    top: 10%;
+    left: 70%;
 }
 
 @media (min-width: 650px){
@@ -368,6 +549,100 @@
         grid-row: 10 / span 1;
         display: flex;
     }
+    .eat-and-drink-grid-container{
+        display: grid;
+        grid-template-columns: repeat(10, minmax(50px, auto));
+        grid-template-rows: repeat(7, 1fr);               
+        gap: 20px;
+        max-width: 1200px;
+        margin: 2rem auto 0 auto;
+        padding: 1rem;
+    }
+    .eat-section-main-image-container{
+        grid-column: 1 / span 4;
+        grid-row: 1 / span 4;
+        overflow: hidden;
+    }
+    .eat-section-main-image-container img{
+        max-width: none;
+        width: auto;
+    }
+    .eat-section-headline-container{
+        grid-column: 5 / span 6;
+        grid-row: 1 / span 1; 
+    }
+    .eat-section-headline{
+        font-size: 4rem;
+        letter-spacing: -1%;
+        margin: 0;
+    }
+    .eat-section-text-container{
+        grid-column: 5 / span 6;
+        grid-row: 2 / span 3;
+        background-image: url(../images/panini.webp);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: right bottom;
+        margin-bottom: 0;
+        
+    }
+    .eat-section-text-container a{
+        color: var(--COLOR-MAIN);
+    }
+    .eat-section-text{
+        max-width: 80%;
+        font-size: .75rem;
+    }
+    .eat-section-text-continued{
+        max-width: 250px;
+        font-size: .75rem;
+    }
+    .drink-section-content-container{
+        grid-column: 1 / span 3;
+        grid-row: 6 / span 4;
+    }
+    .drink-section-content-container p{
+        font-size: .75rem;
+    }
+    .drink-section-image-container{
+        grid-column: 5 / span 4;
+        grid-row: 6 / span 4;
+        display: block;
+    }
+    .drink-section-image{
+        width: 100%;
+        height: auto;
+        max-width: none;
+    }
+    .entertainment-preceeding-text{
+        font-size: 4.25rem;
+        margin-top: 0;
+    }
+    .entertainment-preceeding-text span{
+        font-size: 5.7rem;  
+    }
+    .entertainment-section{
+        background-image: linear-gradient(to bottom, transparent 28px, var(--COLOR-MAIN-DARK) 28px);
+        height: 7rem;
+    }
+    .entertainment-headline{
+        font-size: 5rem;
+        margin-top: -5rem;
+    }
+    .comedy-section,
+    .music-section{
+        flex-direction: row;
+    }
+    .comedy-section-content{
+        padding: 0 2rem 0 4rem;
+    }
+    .music-section-content{
+        padding-left: 10rem;
+    }
+    .entertainment-preceeding-text::before {
+        top: 5px; 
+        font-size: 2rem; 
+    }
 }
 @media (min-width: 850px) {
     .features-grid-image-container{
@@ -382,6 +657,31 @@
     }
     .features-grid-features-text{
         padding-bottom: 1rem;
+        margin-bottom: 3rem;
+    }
+    .eat-and-drink-grid-container{
+        grid-template-rows: repeat(8, 1fr); 
+     }
+    .eat-section-main-image-container{
+        margin-right: 2rem;
+    }
+    .entertainment-preceeding-text{
+        font-size: 4rem;
+        position: relative;
+    }
+    .entertainment-preceeding-text::before {
+        top: 15px;  
+    }
+    .entertainment-preceeding-text span{
+        font-size: 5.7rem;  
+    }
+    .entertainment-section{
+        background-image: linear-gradient(to bottom, transparent 30px, var(--COLOR-MAIN-DARK) 30px);
+        height: 7.5rem;
+    }
+    .entertainment-headline{
+        font-size: 5.7rem;
+        margin-top: -5rem;
     }
 }
 @media (min-width: 1000px){
@@ -403,6 +703,51 @@
     .features-grid-benefits-headline{
         font-size: 7rem;
    }
+   .eat-section-main-image-container{
+    margin-right: 0;
+    }
+    .eat-section-main-image-container{
+        grid-column: 1 / span 3;
+    }
+    .eat-section-headline{
+        font-size: 5.75rem;
+    }
+    .eat-section-text{
+        font-size: 1rem;
+    }
+    .eat-section-text-continued{
+        font-size: 1rem;
+    }
+    .drink-section-content-container p{
+        font-size: 1rem;
+    }
+    .drink-section-content-container a{
+        color: var(--COLOR-MAIN);
+    }
+    .drink-section-headline{
+        font-size: 2.5rem;
+    }
+    .entertainment-preceeding-text{
+        font-size: 6rem;
+        margin-top: 2rem;
+    }
+    .entertainment-preceeding-text span{
+        font-size: 9rem;  
+    }
+    .entertainment-section{
+        background-image: linear-gradient(to bottom, transparent 35px, var(--COLOR-MAIN-DARK) 35px);
+        height: 8rem;
+    }
+    .entertainment-headline{
+        font-size: 6.9rem;
+        margin-top: -7.1rem;
+    }
+    .comedy-section-content{
+        padding: 0 0 0 4rem;
+    }
+    .entertainment-preceeding-text::before {
+        top: 35px;  
+    }
 }
 @media (min-width: 1107px){
     .hero-opt-two-text-column{
@@ -445,5 +790,57 @@
     }
     .features-grid-hookah-container{
         grid-row: 4 / span 9;
+    }
+    .eat-section-main-image-container{
+        grid-column: 2 / span 2;
+    }
+    .eat-section-headline{
+        font-size: 6.5rem;
+    }
+    .drink-section-headline{
+        font-size: 2.75rem;
+    }
+    .entertainment-preceeding-text{
+        font-size: 6rem;
+    }
+    .entertainment-preceeding-text span{
+        font-size: 9rem;  
+    }
+    .entertainment-section{
+        background-image: linear-gradient(to bottom, transparent 41px, var(--COLOR-MAIN-DARK) 41px);
+        height: 10rem;
+    }
+    .entertainment-headline{
+        font-size: 7.6rem;
+        margin-top: -7.4rem;
+    }
+    .comedy-section-content{
+        padding: 0 0 0 9rem;
+    }
+}
+@media (min-width: 1200px){
+    .eat-section-headline{
+        font-size: 7rem;
+    }
+    .drink-section-headline{
+        font-size: 3rem;
+    }
+    .entertainment-preceeding-text{
+        font-size: 6rem;
+        margin-top: 4rem;
+    }
+    .entertainment-preceeding-text span{
+        font-size: 9rem;  
+    }
+    .entertainment-section{
+        background-image: linear-gradient(to bottom, transparent 46px, var(--COLOR-MAIN-DARK) 46px);
+        height: 12rem;
+    }
+    .entertainment-headline{
+        font-size: 8.5rem;
+        margin-top: -7.6rem;
+    }
+    .comedy-section-content{
+        padding: 0 0 0 10rem;
     }
 }

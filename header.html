@@ -35,6 +35,7 @@
     <script defer src="js/menu.js"></script>
 </head>
 <body>
+  <div class="header">
   <nav class="main-nav">
     <div class="circle-bg"></div>
     <div class="mobile-top-bar">
@@ -48,8 +49,10 @@
       <ul class="site-menu">
           <li><a href="#"><span>Experience</span></a></li>
           <li><a href="#" class="menu-item" data-submenu="menu-submenu-data"><span>Menu</span></a>
-            <!-- <ul> <li><a href></a></li> </ul                                              
-            Submenus for desktop will nest as normal. Javascript will not toggle visibility of below submenus-->
+            <ul class="desktop-submenu">
+              <li><a href="#">Food</a></li> 
+              <li><a href="#">Drinks</a></li> 
+            </ul>                                                      
           </li>
           <li><a href="#"><span>Events</span></a></li>
           <li><a href="#" class="menu-item" data-submenu="loyalty-submenu-data"><span>Loyalty Club</span></a></li>
@@ -69,5 +72,6 @@
                         <li><a href="#"><span>Business</span></a></li>
                       </ul>
   </nav>
+</div>
 </body>
 </html>
