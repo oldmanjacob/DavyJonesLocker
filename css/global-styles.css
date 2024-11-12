@@ -200,7 +200,7 @@ p {
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
-    background: var(--COLOR-MAIN);
+    background: var(--COLOR-MAIN-DARK);
     color: white;
     position: fixed;
     top: 0;
@@ -208,9 +208,23 @@ p {
     width: 100%;
     height: 60px;
     z-index: 10;
+    border-bottom: 2px solid var(--COLOR-MAIN);
+    box-shadow: 2px 2px 2px black;
   }
-  .top-bar-logo {
-    font-size: 1.5rem;
+  .top-bar-logo img{
+    margin-right: 8px;
+ 
+    vertical-align: middle;
+  }
+  .top-bar-logo a{
+    text-decoration: none;
+  }
+  .top-bar-logo span{
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 1.25rem;
+    padding-top: .5rem;
   }
   .burger {
     height: 40px;
@@ -230,7 +244,7 @@ p {
     display: block;
     margin: 5px auto;
     position: relative;
-    background-color: #333;
+    background-color: var(--COLOR-MAIN-DARK);
     border-radius: 10px;
     transition: transform 0.4s, opacity 0.4s;
   }
@@ -252,7 +266,7 @@ p {
     right: 20px;
     width: 60px;
     height: 60px;
-    background: #333;
+    background: var(--COLOR-MAIN);
     border-radius: 50%;
     transform: scale(0);
     transition: transform 0.5s ease-in-out;
@@ -273,7 +287,7 @@ p {
       left: 0;
       width: 100%;
       padding: 2rem 1rem;
-      background: #333;
+      background-image: linear-gradient(to bottom, var(--COLOR-MAIN), var(--COLOR-MAIN-DARK));
       flex-direction: column;
       justify-content: flex-start;
       z-index: 8;
@@ -300,7 +314,7 @@ p {
   .menu-submenu li {
       margin: 0;
       width: 100%;
-      border: 2px solid black;
+      border: 2px solid var(--COLOR-MAIN-BRIGHT);
       border-radius: 10px;
       overflow: hidden;
       background-color: white;
@@ -312,6 +326,7 @@ p {
       flex-shrink: 0;
       flex-grow: 0;
       flex-basis: auto;
+      box-shadow: 2px 2px 5px black;
   }
   .site-menu li + li,
   .menu-submenu li + li {
@@ -325,8 +340,10 @@ p {
       width: 100%;
       height: 100%;
       text-decoration: none;
-      color: #333;
-      font-size: 1rem;
+      color: var(--COLOR-MAIN-DARK);
+      font-size: 1.25rem;
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
   }
   .site-menu a span,
   .menu-submenu a span {
@@ -340,7 +357,8 @@ p {
   }
   /*//////////////////////////////Footer styles////////////////////////////////*/
   .site-footer {
-    background-color: #2a2a2a;
+    background-color: var(--COLOR-MAIN-DARK);
+    background-image: linear-gradient(to bottom, var(--COLOR-MAIN-DARK), black);
     color: #fff;
     position: relative;
     bottom: 0;
@@ -358,12 +376,20 @@ p {
   .footer-contact{
     flex: 1 1 200px;
     min-width: 200px;
+    min-height: 250px;
     text-align: center;
     margin: 5px;
   }
+  .footer-contact a{
+    text-align: left;
+  }
+  .footer-contact a{
+    padding-left: 2rem;
+    margin: 1rem 0 .5rem 0;
+  }
   .footer-container h3{
     background-color: white;
-    color: #333;
+    color: var(--COLOR-MAIN-DARK);
     padding: .5rem;
   }
   .footer-nav ul,
@@ -372,10 +398,49 @@ p {
   .footer-contact p{
     padding: .5rem;
   }
+  .footer-hours p{
+    color: var(--COLOR-HIGHLIGHT);
+  }
+  .footer-hours p span{
+    color: white;
+  }
   .footer-nav li{
-    text-decoration: none;
     list-style: none;
   }
+  .footer-nav a{
+    text-decoration: none;
+    color: white;
+  }
+  .footer-nav a:hover,
+  .footer-nav a:focus,
+  .footer-contact a:hover,
+  .footer-contact a:focus{
+    color: var(--COLOR-HIGHLIGHT);
+  }
+  .footer-social-link{
+    color: white;
+    text-decoration: none;
+  }
+  .footer-social-link p span{
+    padding-bottom: 0rem;
+    margin-right: 8px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .footer-social-link:hover,
+  .footer-social-link:focus {
+    color: var(--COLOR-HIGHLIGHT);
+  }
+  .footer-contact{
+    display: flex;
+    flex-direction: column;
+  }
+  .footer-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+    fill: var(--icon-color);
+}
   
   @media (min-width: 768px) {
     h1 {
@@ -432,6 +497,10 @@ p {
   .site-menu li + li{
       margin-top: 0rem;
       margin-left: 1em;
+  }
+  .site-menu li,
+  .menu-submenu li{
+    box-shadow: none;
   }
   .site-menu a{
       font-size: 1rem;

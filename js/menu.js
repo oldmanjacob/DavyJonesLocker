@@ -30,10 +30,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (window.matchMedia('(max-width: 768px)').matches) {
             const anySubMenuActive = Array.from(subMenus).some(subMenu => subMenu.classList.contains('active'));
             if (anySubMenuActive) closeAllSubMenus();
-
+    
             if (siteMenu.classList.contains('active')) {
                 mainNav.classList.remove('active');
                 siteMenu.classList.remove('active');
+                circleBg.classList.remove('active');
                 setTimeout(() => {
                     siteMenu.classList.remove('visible');
                     burger.classList.remove('active');
