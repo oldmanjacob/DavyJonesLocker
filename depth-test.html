@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Zooming Rectangles Effect</title>
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 500vh; /* Increased height for more scrolling */
+        overflow-x: hidden;
+        background-color: black;
+    }
+
+    .rectangle {
+        position: fixed;
+        width: 50vw;
+        height: 50vh;
+    }
+
+    /* Initial Rectangles */
+    #rect1 {
+        background-color: red;
+        top: 0;
+        left: 0;
+    }
+
+    #rect2 {
+        background-color: green;
+        top: 0;
+        right: 0;
+    }
+
+    #rect3 {
+        background-color: blue;
+        bottom: 0;
+        left: 0;
+    }
+
+    #rect4 {
+        background-color: yellow;
+        bottom: 0;
+        right: 0;
+    }
+
+    /* Second Set of Rectangles */
+    .rectangle2 {
+        position: fixed;
+        width: 0;
+        height: 0;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+    }
+
+    #rect5 {
+        background-color: purple;
+    }
+
+    #rect6 {
+        background-color: orange;
+    }
+
+    #rect7 {
+        background-color: cyan;
+    }
+
+    #rect8 {
+        background-color: pink;
+    }
+
+    /* Third Set of Rectangles */
+    .rectangle3 {
+        position: fixed;
+        width: 0;
+        height: 0;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+    }
+
+    #rect9 {
+        background-color: magenta;
+    }
+
+    #rect10 {
+        background-color: lime;
+    }
+
+    #rect11 {
+        background-color: navy;
+    }
+
+    #rect12 {
+        background-color: gold;
+    }
+</style>
+</head>
+<body>
+
+<!-- Initial Rectangles -->
+<div id="rect1" class="rectangle"></div>
+<div id="rect2" class="rectangle"></div>
+<div id="rect3" class="rectangle"></div>
+<div id="rect4" class="rectangle"></div>
+
+<!-- Second Set of Rectangles -->
+<div id="rect5" class="rectangle2"></div>
+<div id="rect6" class="rectangle2"></div>
+<div id="rect7" class="rectangle2"></div>
+<div id="rect8" class="rectangle2"></div>
+
+<!-- Third Set of Rectangles -->
+<div id="rect9" class="rectangle3"></div>
+<div id="rect10" class="rectangle3"></div>
+<div id="rect11" class="rectangle3"></div>
+<div id="rect12" class="rectangle3"></div>
+
+<script>
+window.addEventListener('scroll', function() {
+    const scrollY = window.scrollY;
+    const windowHeight = window.innerHeight;
+
+    // Total scrollable height for animations
+    const totalScrollHeight = document.body.scrollHeight - windowHeight;
+
+    // Divide the total scrollable height into three equal parts
+    const phaseDuration = totalScrollHeight / 3;
+
+    // Calculate progress ratios for each phase (from 0 to 1)
+    const progress1 = Math.min(scrollY / phaseDuration, 1);
+    const progress2 = Math.min(Math.max((scrollY - phaseDuration) / phaseDuration, 0), 1);
+    const progress3 = Math.min(Math.max((scrollY - 2 * phaseDuration) / phaseDuration, 0), 1);
+
+    /* --- First Set of Rectangles (Initial Rectangles) --- */
+    const rectangles = document.querySelectorAll('.rectangle');
+    rectangles.forEach((rect, index) => {
+        const offsetX = (index % 2 === 0 ? -1 : 1) * progress1 * window.innerWidth;
+        const offsetY = (index < 2 ? -1 : 1) * progress1 * window.innerHeight;
+        const scale = 1 + progress1;
+        const blurValue = progress1 * 20; // Adjust blur intensity as needed
+
+        rect.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(${scale})`;
+        rect.style.filter = `blur(${blurValue}px)`;
+        rect.style.opacity = 1 - progress1;
+    });
+
+    /* --- Second Set of Rectangles --- */
+    const rectangles2 = document.querySelectorAll('.rectangle2');
+    rectangles2.forEach((rect, index) => {
+        if (progress2 > 0) {
+            let size, blurValue = 0;
+            let offsetX, offsetY;
+            const maxBlurValue = 20; // Maximum blur value
+
+            if (progress2 <= 0.9) {
+                // First part: Rectangles grow to fill the viewport
+                const progress = progress2 / 0.9; // 0 to 1
+                size = progress * 100; // 0vw/vh to 100vw/vh
+                blurValue = 0; // No blur
+
+                // Positions move from center to quadrant centers
+                const positionOffset = progress * 50; // 0 to 50vw/vh
+                if (index === 0) { // Top-left quadrant
+                    offsetX = -positionOffset;
+                    offsetY = -positionOffset;
+                } else if (index === 1) { // Top-right quadrant
+                    offsetX = positionOffset;
+                    offsetY = -positionOffset;
+                } else if (index === 2) { // Bottom-left quadrant
+                    offsetX = -positionOffset;
+                    offsetY = positionOffset;
+                } else if (index === 3) { // Bottom-right quadrant
+                    offsetX = positionOffset;
+                    offsetY = positionOffset;
+                }
+            } else {
+                // Second part: Rectangles expand beyond viewport and blur
+                const progress = (progress2 - 0.9) / 0.1; // 0 to 1
+                size = 100 + progress * 100; // 100vw/vh to 200vw/vh
+                blurValue = progress * maxBlurValue;
+
+                // Positions move further outward
+                const positionOffset = 50 + progress * 50; // 50vw/vh to 100vw/vh
+                if (index === 0) { // Top-left quadrant
+                    offsetX = -positionOffset;
+                    offsetY = -positionOffset;
+                } else if (index === 1) { // Top-right quadrant
+                    offsetX = positionOffset;
+                    offsetY = -positionOffset;
+                } else if (index === 2) { // Bottom-left quadrant
+                    offsetX = -positionOffset;
+                    offsetY = positionOffset;
+                } else if (index === 3) { // Bottom-right quadrant
+                    offsetX = positionOffset;
+                    offsetY = positionOffset;
+                }
+            }
+
+            rect.style.width = `${size}vw`;
+            rect.style.height = `${size}vh`;
+            rect.style.opacity = 1 - (progress2 - 0.9) / 0.1; // Fade out during blur
+            rect.style.transform = `translate(calc(-50% + ${offsetX}vw), calc(-50% + ${offsetY}vh))`;
+            rect.style.filter = `blur(${blurValue}px)`;
+        } else {
+            rect.style.opacity = 0;
+        }
+    });
+
+    /* --- Third Set of Rectangles --- */
+    const rectangles3 = document.querySelectorAll('.rectangle3');
+    rectangles3.forEach((rect, index) => {
+        if (progress3 > 0) {
+            let size, blurValue = 0;
+            let offsetX, offsetY;
+
+            // Rectangles grow to fill the viewport without blur
+            const progress = progress3; // 0 to 1
+            size = progress * 100; // 0vw/vh to 100vw/vh
+            blurValue = 0; // No blur
+
+            // Positions move from center to quadrant centers
+            const positionOffset = progress * 50; // 0 to 50vw/vh
+            if (index === 0) { // Top-left quadrant
+                offsetX = -positionOffset;
+                offsetY = -positionOffset;
+            } else if (index === 1) { // Top-right quadrant
+                offsetX = positionOffset;
+                offsetY = -positionOffset;
+            } else if (index === 2) { // Bottom-left quadrant
+                offsetX = -positionOffset;
+                offsetY = positionOffset;
+            } else if (index === 3) { // Bottom-right quadrant
+                offsetX = positionOffset;
+                offsetY = positionOffset;
+            }
+
+            rect.style.width = `${size}vw`;
+            rect.style.height = `${size}vh`;
+            rect.style.opacity = progress3;
+            rect.style.transform = `translate(calc(-50% + ${offsetX}vw), calc(-50% + ${offsetY}vh))`;
+            rect.style.filter = `blur(${blurValue}px)`;
+        } else {
+            rect.style.opacity = 0;
+        }
+    });
+});
+</script>
+
+</body>
+</html>
