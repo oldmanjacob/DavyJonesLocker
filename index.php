@@ -196,11 +196,11 @@
                         <p class="events-one-event-card-label">DJ Night</p>
                         <h3 class="events-one-event-card-headline">Pre-Opening Party</h3>
                         <p class="events-one-event-card-text">Join us for a night filled with music and fun!</p>
-                        <a class="events-one-event-card-link" href="#" class="dead-link">View Event ></a>
+                        <a class="events-one-event-card-link dead-link" href="#">View Event ></a>
                     </div>
                 </div>
                 <div class="events-one-column events-one-right-column">
-                    <a class="events-one-learn-more" href="#" class="dead-link">View All</a>
+                    <a class="events-one-learn-more dead-link" href="#">View All</a>
                     <div class="events-one-event-card">
                         <div class="events-one-event-card-image">
                                 <img class="events-one-event-card-img-placeholder" src="images/hookah-and-cocktail.webp" width="600" height="400" alt="a hookah sits on a table next to a cocatil">
@@ -213,7 +213,7 @@
                         <p class="events-one-event-card-label">Celebration</p>
                         <h3 class="events-one-event-card-headline">Grand Opening</h3>
                         <p class="events-one-event-card-text">Sample Hookah, food, and have a drink!</p>
-                        <a class="events-one-event-card-link" href="#" class="dead-link">View Event ></a>
+                        <a class="events-one-event-card-link dead-link" href="#">View Event ></a>
                     </div>
                 </div>
             </div>

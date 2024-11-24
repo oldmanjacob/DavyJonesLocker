@@ -9,9 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let mobileMenuEnabled = false;
 
     const enableMobileMenu = () => {
-        burger.removeEventListener('click', toggleMainMenu);
-        menuItems.forEach(menuItem => menuItem.removeEventListener('click', toggleSubMenu));
-    
         if (window.matchMedia('(max-width: 768px)').matches) {
             if (!mobileMenuEnabled) {
                 burger.addEventListener('click', toggleMainMenu);
@@ -19,9 +16,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 mobileMenuEnabled = true;
             }
         } else {
-            mobileMenuEnabled = false;
+            if (mobileMenuEnabled) {
+                burger.removeEventListener('click', toggleMainMenu);
+                menuItems.forEach(menuItem => menuItem.removeEventListener('click', toggleSubMenu));
+                mobileMenuEnabled = false;
+            }
         }
     };
+    
 
     const closeAllSubMenus = (excludeMenu = null) => {
         subMenus.forEach(subMenu => {
@@ -77,27 +79,29 @@ document.addEventListener('DOMContentLoaded', () => {
     enableMobileMenu();
     window.addEventListener('resize', enableMobileMenu);
 });
-// Popup
-const popup = document.getElementById("deadLinkPopup");
-        const closePopup = document.getElementById("closePopup");
-        const deadLinks = document.querySelectorAll(".dead-link");
+document.addEventListener('DOMContentLoaded', () => {
+    const popup = document.getElementById("deadLinkPopup");
+    const closePopup = document.getElementById("closePopup");
+    const deadLinks = document.querySelectorAll(".dead-link");
 
-        // Show popup when dead link is clicked
-        deadLinks.forEach(link => {
-            link.addEventListener("click", (e) => {
-                e.preventDefault(); // Prevent navigation
-                popup.style.display = "flex"; // Show the popup
-            });
+    // Show popup when dead link is clicked
+    deadLinks.forEach(link => {
+        link.addEventListener("click", (e) => {
+            e.preventDefault(); // Prevent navigation
+            popup.style.display = "flex"; // Show the popup
         });
+    });
 
-        // Close popup when "X" is clicked
-        closePopup.addEventListener("click", () => {
+    // Close popup when "X" is clicked
+    closePopup.addEventListener("click", () => {
+        popup.style.display = "none";
+    });
+
+    // Close popup when clicking outside the popup
+    popup.addEventListener("click", (e) => {
+        if (e.target === popup) {
             popup.style.display = "none";
-        });
+        }
+    });
+});
 
-        // Close popup when clicking outside the popup
-        popup.addEventListener("click", (e) => {
-            if (e.target === popup) {
-                popup.style.display = "none";
-            }
-        });
